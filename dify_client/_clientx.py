@@ -130,7 +130,7 @@ class Client(BaseModel):
                 errors.raise_for_status(event_source.response)
             for sse in event_source.iter_sse():
                 errors.raise_for_status(sse)
-                if sse.data in IGNORED_STREAM_EVENTS:
+                if sse.event in IGNORED_STREAM_EVENTS or sse.data in IGNORED_STREAM_EVENTS:
                     continue
                 yield sse
 
@@ -434,7 +434,7 @@ class AsyncClient(BaseModel):
                 errors.raise_for_status(event_source.response)
             async for sse in event_source.aiter_sse():
                 errors.raise_for_status(sse)
-                if sse.data in IGNORED_STREAM_EVENTS:
+                if sse.event in IGNORED_STREAM_EVENTS or sse.data in IGNORED_STREAM_EVENTS:
                     continue
                 yield sse
 
