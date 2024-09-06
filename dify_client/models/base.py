@@ -11,7 +11,7 @@ from pydantic import BaseModel, ConfigDict
 class Mode(StrEnum):
     CHAT = "chat"
     COMPLETION = "completion"
-
+    ADAVANCED_CHAT = "advanced-chat"
 
 class ResponseMode(StrEnum):
     STREAMING = 'streaming'
