@@ -26,7 +26,8 @@ class StreamEvent(StrEnum):
     MESSAGE_REPLACE = "message_replace"
     ERROR = "error"
     PING = "ping"
-
+    TTS_MESSAGE_END = "tts_message_end"
+    
     @classmethod
     def new(cls, event: Union["StreamEvent", str]) -> "StreamEvent":
         if isinstance(event, cls):
